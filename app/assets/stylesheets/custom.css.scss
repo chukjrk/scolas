@@ -12,6 +12,12 @@ body {
 	filter: alpha(opacity=50);
 }
 
+#modal {
+	background-color: #f0f8ff;
+	opacity: 1;
+	filter: alpha(opacity=50);
+}
+
 .navbar-default .navbar-brand {
 	font-family: guardian-egypt, georgia, serif;
 	font-size: 30px;
@@ -39,5 +45,16 @@ body {
 	}
 	p {
 		font-size: 18px;
+	}
+}
+
+.caption {
+	h3 {
+		font-size: 17px;
+		margin: 2px;
+	}
+	p {
+		font-size: 15px;
+		margin: 0px;
 	}
 }
