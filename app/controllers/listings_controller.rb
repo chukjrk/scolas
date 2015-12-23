@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy]
   before_filter :check_user, only: [:edit, :update, :destroy]
 
   # GET /listings
@@ -10,7 +10,7 @@ class ListingsController < ApplicationController
   end
 
   def index
-    @listings = Listing.all.order("created_at DESC")
+    @listings = Listing.all.order("created_at DESC").paginate(:per_page => 16, :page => params[:page])
   end
 
   # GET /listings/1
@@ -27,11 +27,19 @@ class ListingsController < ApplicationController
   def edit
   end
 
+  def search
+    if params[:search].present?
+      @listings = Listing.search(params[:search])
+    else
+      @listings = Listing.all.order("created_at DESC").paginate(:per_page => 16, :page => params[:page])
+    end
+  end
+
   # POST /listings
   # POST /listings.json
   def create
     @listing = Listing.new(listing_params)
-    @listing.user_id =current_user.id
+    @listing.user_id = current_user.id
 
     respond_to do |format|
       if @listing.save
@@ -76,8 +84,13 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
+      params.require(:listing).permit(:name, :description, :image)
+    end
+
+    def check_user
       if current_user != @listing.user
-        params.require(:listing).permit(:name, :description, :price, :image)
+      redirect_to root_url, alert: "Sorry this listing belongs to someone else"
       end
     end
+
 end

@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
+  get 'pages/textshare'
+
   devise_for :users
   get 'pages/scolasindex'
 
-  resources :listings
+  resources :listings do
+    collection do
+      get "search"
+    end
+  end
 
   get "pages/about"
   get "pages/contact"

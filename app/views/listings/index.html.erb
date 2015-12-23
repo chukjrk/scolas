@@ -1,9 +1,31 @@
 <div class="container">
   <div class="center">
-  <h1>Listings</h1>
+    <h1>Listings</h1>
 
-  <div class="row">
-    <% @listings.each do |listing| %>
+    <div class="row">
+    <div class="col-lg-6">
+    <%= form_tag search_listings_path, method: :get do %>
+      <p>
+        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search" %>
+        <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+      </p>
+    <% end %>
+    </div>
+    </div>
+
+<!--     <div class="row">
+      <div class="col-lg-6">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for...">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Go!</button>
+          </span>
+        </div>/input-group 
+      </div> /.col-lg-6 
+    </div> /.row --> -->
+
+    <div class="row">
+      <% @listings.each do |listing| %>
       <div class="col-md-3">
         <div class="thumbnail">
           <%= link_to image_tag(listing.image.url), listing %>
@@ -11,17 +33,22 @@
             <h3><%= listing.name %></h3>
             <p><%= number_to_currency(listing.price) %></p>
             <p><%= "From: #{listing.user.name}" %></p>
+            <% if (user_signed_in?) && (current_user == listing.user) %>
+              <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-link" %>
+              <%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
+            <% end %>
           </div>
         </div>     
       </div>
+      <% end %>
+    </div>
+
+    <br>
+
+    <%= will_paginate @listings %>
+
+    <% if user_signed_in? %>
+      <%= link_to 'New Listing', new_listing_path, class: "btn btn-link" %>
     <% end %>
   </div>
-
-  <br>
-
-  <% if user_signed_in? %>
-    <%= link_to 'New Listing', new_listing_path, class: "btn btn-link" %>
-  <% end %>
 </div>
-
-

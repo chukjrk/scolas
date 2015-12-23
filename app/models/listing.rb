@@ -6,11 +6,14 @@ class Listing < ActiveRecord::Base
 											:storage => :dropbox,
     									:dropbox_credentials => Rails.root.join("config/dropbox.yml"),
     									:path => ":style/:id_filename"
-  end
+  	end
+
+  	searchkick
 
 	validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 	validates :name, :description, presence: true
 	validates_attachment_presence :image
 
 	belongs_to :user
+
 end

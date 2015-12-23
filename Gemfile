@@ -29,6 +29,11 @@ gem "devise"
 
 gem "figaro"
 
+gem "will_paginate", '~> 3.0.6'
+
+gem 'gioco'
+
+gem "searchkick"
 group :production do
 	gem 'pg'
 	gem 'rails_12factor'	
