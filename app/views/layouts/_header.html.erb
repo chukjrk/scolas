@@ -33,6 +33,77 @@
 				<!-- this is for all the things in the dropbar when the window is minimized -->
 
 				<ul class="nav navbar-nav navbar-right">
+
+					<li><%= link_to "TextShare", pages_textshare_path %></li>
+					<li><%= link_to "About", pages_about_path %></li>
+					<li><%= link_to "Contact", pages_contact_path %></li>
+										
+					<% if user_signed_in? %>
+						<li class="menu-list-item">Points ( <%= current_user.points %> ) | </li>										
+						<li>
+							<div class="dropdown">
+							  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+							    <%= current_user.name %>
+							    <span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+							  	<li><%= link_to "Edit Profile", edit_user_registration_path  %></li>
+							  	<li><%= link_to "Manage Books", seller_path %></li>
+								<li><%= link_to "Purchases on hold", purchasing_path %></li>
+								<li><%= link_to "Purchases archive", purchased_path %></li>
+								<li><%= link_to "Sales on hold", sell_path %></li>
+								<li><%= link_to "Sales archive", sales_path %></li>
+								<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete  %></li>
+							  </ul>
+							</div>
+						</li>					
+					<% else %>
+						<li><%= link_to "Sign Up", new_user_registration_path  %></li>
+						<li><%= link_to "Login", new_user_session_path  %></li>
+					<% end %>
+
+				</ul>
+			</div>
+
+			<!-- </div> -->
+		</nav>
+
+		<!--jumboron is a header based style that can be added to website -->
+	<!--</div><!-- End jumbotron -->
+
+	<script type="text/javascript">
+		$("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
+
+		$(function(){
+			// Calling Login Form
+			$("#login_form").click(function(){
+				$(".social_login").hide();
+				$(".user_login").show();
+				return false;
+			});
+
+			// Calling Register Form
+			$("#register_form").click(function(){
+				$(".social_login").hide();
+				$(".user_register").show();
+				$(".header_title").text('Register');
+				return false;
+			});
+
+			// Going back to Social Forms
+			$(".back_btn").click(function(){
+				$(".user_login").hide();
+				$(".user_register").hide();
+				$(".social_login").show();
+				$(".header_title").text('Login');
+				return false;
+			});
+
+		})
+	</script>
+
+</div>
+
 					<!-- <div class="container"> -->
 					<!-- <li><a id="modal_trigger" href="#modal" class="">Member</a></li>
 
@@ -121,58 +192,3 @@
 						</section>
 					</div> --> 
 					<!-- </div> -->
-					
-					<% if user_signed_in? %>
-						<li><%= link_to "Manage Books", seller_path %></li>
-						<li><%= link_to "Edit Profile", edit_user_registration_path  %></li>
-						<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete  %></li>
-					<% else %>
-						<li><%= link_to "Sign Up", new_user_registration_path  %></li>
-						<li><%= link_to "Login", new_user_session_path  %></li>
-					<% end %>
-
-					<li><%= link_to "About", pages_about_path %></li>
-					<li><%= link_to "Contact", pages_contact_path %></li>
-					<li><%= link_to "TextShare", pages_textshare_path %></li>
-
-				</ul>
-			</div>
-
-			<!-- </div> -->
-		</nav>
-
-		<!--jumboron is a header based style that can be added to website -->
-	<!--</div><!-- End jumbotron -->
-
-	<script type="text/javascript">
-		$("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
-
-		$(function(){
-			// Calling Login Form
-			$("#login_form").click(function(){
-				$(".social_login").hide();
-				$(".user_login").show();
-				return false;
-			});
-
-			// Calling Register Form
-			$("#register_form").click(function(){
-				$(".social_login").hide();
-				$(".user_register").show();
-				$(".header_title").text('Register');
-				return false;
-			});
-
-			// Going back to Social Forms
-			$(".back_btn").click(function(){
-				$(".user_login").hide();
-				$(".user_register").hide();
-				$(".social_login").show();
-				$(".header_title").text('Login');
-				return false;
-			});
-
-		})
-	</script>
-
-</div>

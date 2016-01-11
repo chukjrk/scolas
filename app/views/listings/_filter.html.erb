@@ -1,10 +1,14 @@
-    <div class="row">
-    <div class="col-lg-6">
-    <%= form_tag search_listings_path, method: :get do %>
-      <p>
-        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search" %>
-        <%= submit_tag "Search", name: nil, class: "btn btn-default", type: "button" %>
-      </p>
-    <% end %>
+<div class="row" id="spacing-half">
+    <div class="row inline">
+        <%= form_tag search_listings_path, method: :get do %>
+        <p>
+            <div class="col-lg-7" id="one">
+                <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search" %>
+            </div>
+            <div id="two">
+                <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+            </div>
+        </p>
+        <% end %>
     </div>
-    </div>
+</div>

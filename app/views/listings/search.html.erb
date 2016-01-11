@@ -1,27 +1,8 @@
-<div class="container">
+<div class="container" id="spacing">
   <div class="center">
     <h1>Listings</h1>
 
-    <div class="row">
-    <div class="col-lg-6">
-    <%= form_tag search_listings_path, method: :get do %>
-      <p>
-        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search" %>
-        <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
-      </p>
-    <% end %>
-    </div>
-    </div>
-<!--     <div class="row">
-      <div class="col-lg-6">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for...">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Go!</button>
-          </span>
-        </div>/input-group 
-      </div> /.col-lg-6 
-    </div> /.row --> -->
+    <%= render 'filter' %>
 
     <div class="row">
       <% @listings.each do |listing| %>

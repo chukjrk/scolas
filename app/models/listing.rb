@@ -15,5 +15,8 @@ class Listing < ActiveRecord::Base
 	validates_attachment_presence :image
 
 	belongs_to :user
-
+    
+    def self.products_list
+		where(displayable: true)
+	end
 end

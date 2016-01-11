@@ -2,6 +2,7 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy]
   before_filter :check_user, only: [:edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   # GET /listings
   # GET /listings.json
@@ -10,12 +11,14 @@ class ListingsController < ApplicationController
   end
 
   def index
-    @listings = Listing.all.order("created_at DESC").paginate(:per_page => 16, :page => params[:page])
+    @listings = Listing.products_list.order("created_at DESC").paginate(:per_page => 16, :page => params[:page])
   end
 
   # GET /listings/1
   # GET /listings/1.json
   def show
+    @listing = Listing.find(params[:id])
+    @transaction = Transaction.new()
   end
 
   # GET /listings/new
@@ -31,7 +34,7 @@ class ListingsController < ApplicationController
     if params[:search].present?
       @listings = Listing.search(params[:search])
     else
-      @listings = Listing.all.order("created_at DESC").paginate(:per_page => 16, :page => params[:page])
+      @listings = Listing.products_list.order("created_at DESC").paginate(:per_page => 16, :page => params[:page])
     end
   end
 
@@ -40,6 +43,7 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
+    @listing.price = 1
 
     respond_to do |format|
       if @listing.save

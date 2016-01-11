@@ -10,9 +10,21 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :transactions   , only: [:create]
+  resources :archives       , only: [:create]
+  resources :rooms          , only: [:show, :create]
+  resources :messages       , only: [:create]
+
+
   get "pages/about"
   get "pages/contact"
   get 'seller' => "listings#seller"
+
+  get "purchasing"  => "transactions#purchasing"
+  get "sell"      => "transactions#sell"
+
+  get "purchased"  => "archives#purchased"
+  get "sales"      => "archives#sales"
 
   root 'pages#scolasindex'
 
