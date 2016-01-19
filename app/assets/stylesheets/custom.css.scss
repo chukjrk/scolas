@@ -14,7 +14,7 @@ body {
 }
 
 #modal {
-	background-color: #f0f8ff;
+	background-color: #f0f8ff; 
 	opacity: 1;
 	filter: alpha(opacity=50);
 }
@@ -33,8 +33,22 @@ body {
 	color: #000000;
 }
 
+.header{
+	li.menu-list-item{
+		padding-top: 15px;
+		font-weight: bold;
+	}
+	li.menu-item2{
+		padding-top: 7px;
+	}
+}
+
 .center {
 	text-align: center;
+}
+
+.col-md-3:nth-child(4n+1) {
+  clear: left;
 }
 
 .col-md-6{
@@ -93,4 +107,162 @@ body {
 
 #spacing-half {
 	padding-bottom: 15px;
+}
+
+.product-list{
+	.product-item{
+		background-color: #f1f1f1;
+		margin-bottom: 20px;
+		padding: 10px 0 0 10px;
+		img{
+			float: left;
+			margin-right: 10px;
+			border: 5px solid #fff;
+		}
+		p{
+			span{
+				font-size: 20px;
+			}
+		}
+		.serial{
+			margin-top: 30px;
+		}
+		.approve-recived{
+			text-align: center;
+			padding-top: 10px;
+			.recived{
+				margin-top: 10px;
+				width: 170px;
+			}
+		}
+		.messages{
+			text-align: center;
+			margin: 20px 0;
+		}
+	}
+}
+
+.room{
+	.room-info{
+		background-color: #f1f1f1;
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		p{
+			margin: 10px;
+			font-size: 15px;
+			span{
+				font-size: 20px;
+			}
+		}
+	}
+	.messages{
+		margin: 20px 0;
+		ul{
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			float: left;
+			li{
+				width: 100%;
+				float: left;
+				margin: 0;
+				padding: 10px 0;
+			}
+		}
+		.message{
+			border-bottom: 2px solid #f1f1f1;
+			.name{
+				font-size: 10px;
+				color: #337ab7;
+			}
+			.time{
+			}
+			.content{
+				color: #666;
+			}
+		}
+		.message:last-child{
+			border-bottom: 0px;
+		}
+	}
+	.send-message{
+		.send{
+			margin-top: 10px;
+		}
+	}
+}
+
+.product-details{
+	.image{
+		border: 5px solid #f1f1f1;
+	}
+
+	#dialog{
+		padding-top: 5px;
+	}
+	#flan{
+		padding-bottom: 7px;
+	}
+}
+
+.ui-widget-content {
+    background: #f1f1f1;
+    border: 1px solid #ccc;
+}
+.ui-dialog {
+	z-index: 200;
+    left: 0;
+    outline: 0 none;
+    padding: 0 !important;
+    position: absolute;
+    top: 0;
+}
+.ui-dialog .ui-dialog-content {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    overflow: auto;
+    position: relative;
+    padding: 10px 20px;
+    margin: 0;
+    p{
+    	margin: 10px 0 20px 0;
+    	font-size: 15px;
+    	width: 100%;
+    	text-align: center;
+    }
+    textarea{
+    	height: 120px;
+    }
+    input[type= "submit"]{
+    	margin-top: 20px;
+    }
+    button{
+    	margin: 20px 20px 0 0;
+    }
+
+}
+.ui-dialog .ui-widget-header {
+	display: none;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+    padding: 0.1em .5em;
+    position: relative;
+    font-size: 1em;
+}
+
+.overlay {
+    position:fixed;
+    display:none; 
+    z-index: 100;
+    /* color with alpha channel */
+    background-color: rgba(0, 0, 0, 0.9); /* 0.7 = 70% opacity */
+
+    /* stretch to screen edges */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }

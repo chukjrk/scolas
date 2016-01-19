@@ -35,6 +35,10 @@ gem "will_paginate", '~> 3.0.6'
 #gem 'gioco'
 
 gem "searchkick"
+
+gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+
 group :production do
 	gem 'pg'
 	gem 'rails_12factor'	

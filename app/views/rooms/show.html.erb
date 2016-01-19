@@ -1,8 +1,8 @@
-<div class="col-md-12 room">
+<div class="container room" id="spacing">
 	<div class="col-md-12 room-info">
 		<p><span>Product on sale: </span><%= @chat_room.listing.name %></p>
-		<p><span>Seller: </span> <%= @chat_room.seller.email %></p>
-		<p><span>Buyer: </span> <%= @chat_room.buyer.email %></p>
+		<p><span>Seller: </span> <%= @chat_room.seller.name %></p>
+		<p><span>Buyer: </span> <%= @chat_room.buyer.name %></p>
 	</div>
 
 	<div class="col-md-12 messages">

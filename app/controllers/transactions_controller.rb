@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
 	def create
 		listing = Listing.find(params[:listing_id])
 		check = false
-		error_message = "Unable to purchased product"
+		error_message = "Unable to purchase product"
 		if listing != nil
 			
 			current_user.with_lock do

@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
 	def create
 		chat_room = Room.find(params[:room_id])
 		if chat_room != nil && correct_user(chat_room)
-			message = chat_room.messages.create(message: params[:message][:message], sender_name: current_user.email)
+			message = chat_room.messages.create(message: params[:message][:message], sender_name: current_user.name)
 			redirect_to room_url(chat_room)
 		end
 	end

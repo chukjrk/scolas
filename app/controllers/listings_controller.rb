@@ -32,7 +32,7 @@ class ListingsController < ApplicationController
 
   def search
     if params[:search].present?
-      @listings = Listing.search(params[:search])
+      @listings = Listing.products_list.order("created_at DESC").paginate(:per_page => 16, :page => params[:page]).search(params[:search])
     else
       @listings = Listing.products_list.order("created_at DESC").paginate(:per_page => 16, :page => params[:page])
     end

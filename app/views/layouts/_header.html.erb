@@ -1,4 +1,4 @@
-<div id="kiole">
+<div class="header" id="kiole">
 	<style >
 
 		li {
@@ -39,8 +39,8 @@
 					<li><%= link_to "Contact", pages_contact_path %></li>
 										
 					<% if user_signed_in? %>
-						<li class="menu-list-item">Points ( <%= current_user.points %> ) | </li>										
-						<li>
+						<li class="menu-list-item">Points ( <%= current_user.points %> ) </li>										
+						<li class="menu-item2">
 							<div class="dropdown">
 							  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 							    <%= current_user.name %>
@@ -48,6 +48,7 @@
 							  </button>
 							  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 							  	<li><%= link_to "Edit Profile", edit_user_registration_path  %></li>
+							  	<li><%= link_to 'Post Book', new_listing_path %></li>
 							  	<li><%= link_to "Manage Books", seller_path %></li>
 								<li><%= link_to "Purchases on hold", purchasing_path %></li>
 								<li><%= link_to "Purchases archive", purchased_path %></li>

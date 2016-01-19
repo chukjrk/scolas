@@ -1,16 +1,15 @@
-<div class="col-md-12 product-list">
+<div class="col-md-12 product-list" id="spacing">
 	<p>Sales Products Archive</p>
 
 	<% @sales.each do |item| %>
 		<div class="col-md-12 product-item">
 			<div class="col-md-2">
-				<%= image_tag item.product.image.thumb.url %>
+				<%= image_tag item.listing.image.url(:medium) %>
 			</div>
 			
 			<div class="col-md-8">
-				<p><span>Product Name: </span>	<%= item.product.title %></p>
+				<p><span>Product Name: </span>	<%= item.listing.name %></p>
 				<p><span>Point: </span><%= item.points %></p>
-				<p><span>Seller: </span><%= item.seller.email %></p>
 				<p><span>Date: </span><%= item.created_at %></p>
 			</div>
 			<div class="col-md-2">
