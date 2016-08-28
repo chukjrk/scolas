@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20160825001550) do
   create_table "listings", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.decimal  "price"
+    t.decimal  "price",              precision: 10, scale: 0
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20160825001550) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "displayable",        default: true
+    t.boolean  "displayable",                                 default: true
   end
 
   create_table "messages", force: true do |t|
@@ -125,8 +125,8 @@ ActiveRecord::Schema.define(version: 20160825001550) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "usersubjects", force: true do |t|
     t.integer  "subject_id"
