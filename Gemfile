@@ -11,43 +11,35 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
-
 gem 'bootstrap-sass', '~> 3.3.5'
-
 gem "paperclip", "~> 4.3"
-
 gem "paperclip-dropbox", ">= 1.1.7"
-
 gem "devise"
-
 gem "figaro"
-
 gem "will_paginate", '~> 3.0.6'
+gem 'pundit'
 
 #gem 'gioco'
-
 gem "searchkick"
-
 gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'pry-rails'
 
 group :production do
 	gem 'pg'
-	gem 'rails_12factor'	
+	gem 'rails_12factor'
 end
 
-group :development, :test do
+#group :development, :test do
 	# Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
-end
+ # gem 'sqlite3'
+#end
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
@@ -66,3 +58,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
+
+gem 'sqlite3'
+# gem 'mysql2', '~> 0.3.11'

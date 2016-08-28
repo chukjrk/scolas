@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'pages/textshare'
 
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "plock"}
   get 'pages/scolasindex'
 
   resources :listings do
@@ -15,6 +15,14 @@ Rails.application.routes.draw do
   resources :rooms          , only: [:show, :create]
   resources :messages       , only: [:create]
 
+  resources :post do
+    resources :comment do
+      resources :reply, except: [:new]
+    end
+  end
+  resources :subject, only: [:index, :create]
+  resources :interest
+  resources :editinterest
 
   get "pages/about"
   get "pages/contact"
