@@ -20,7 +20,7 @@ class InitDb < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    
+
     create_table :rooms do |t|
       t.integer :seller_id, foreign_key: true, index: true
       t.integer :buyer_id, foreign_key: true, index: true
@@ -33,7 +33,7 @@ class InitDb < ActiveRecord::Migration
       t.integer :room_id, foreign_key: true, index: true
       t.text :message
       t.string :sender_name
-      
+
       t.timestamps null: false
     end
 
@@ -54,6 +54,7 @@ class InitDb < ActiveRecord::Migration
       t.integer :points,            null: false, default: 1
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+      t.string :interests
 
       ## Recoverable
       t.string   :reset_password_token
