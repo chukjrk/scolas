@@ -60,10 +60,11 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 # gem 'sqlite3'
-gem 'mysql2', '~> 0.3.11'
+# gem 'mysql2', '~> 0.3.11'
 
 group :development do
 	gem 'annotate'
 	gem "better_errors"
 	gem "binding_of_caller"
+	gem 'sqlite3'
 end
