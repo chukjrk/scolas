@@ -8,6 +8,8 @@
       <th class="center">Action</th>
     </tr>
 
+
+
     <%= @listings.each do |listing| %>
       <tr>
         <td><%= image_tag listing.image.url(:thumb) %></td>
@@ -29,7 +31,7 @@
     <% end %>
   </table>
 
-  <br>
+  <br/>
 
   <% if user_signed_in? %>
   <%= link_to 'New Listing', new_listing_path, class: "btn btn-link" %>

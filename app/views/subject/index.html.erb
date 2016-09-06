@@ -1,10 +1,6 @@
-
 <body>
-<div class="forum">
+<div class="container" id="spacing">
   <% if current_user.interests != "null" %>
-      <p><%= link_to "new post", new_post_path %></p>
-      <p><%= link_to "your posts", post_index_path %></p>
-
     <ul class="tab">
       <% @interests_array.each do |subjects| %>
       <li><a href="#" class="tablinks" onclick="openCity(event, '<%=subjects.name%>')"><%= subjects.name %></a></li>
@@ -13,7 +9,8 @@
     <% @interests_array.each do |subjects| %>
         <div id="<%=subjects.name%>" class="tabcontent">
           <% subjects.posts.each do |post| %>
-          <h3> <%= post.title %> </h3>
+          <!-- <h3> <%= post.title %> </h3> -->
+          <div class="postsby">
           <p> <%= post.content %></p>
 
           <div class="post-data">
@@ -24,14 +21,19 @@
             <% if policy(post).destroy? %>
               <div class="destroy"><%= link_to 'Destroy', post_path(post), :method => :delete %></div>
             <% end %>
-            <%= post.created_at %>
+            <p><%= " #{post.user.name}" %><%= post.created_at %></p>
+            <br>
             <div>
             </div>
+          </div>
           </div>
 
           <% end %>
         </div>
     <% end %>
+    <br>
+    <%= link_to "new post", new_post_path, class: "btn btn-primary" %>
+    <%= link_to "your posts", post_index_path, class: "btn btn-primary"  %>
   <% else %>
     <p>You do not have any interests. Add some!</p>
   <% end %>

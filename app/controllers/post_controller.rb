@@ -51,7 +51,7 @@ class PostController < ApplicationController
   def new_post
     @subject = Subject.find(params[:post][:subject]).id
     @post = Post.new(
-      title: params[:post][:title],
+      # title: params[:post][:title],
       content: params[:post][:content],
       subject_id: @subject
       )
@@ -60,7 +60,7 @@ class PostController < ApplicationController
 
   def subject_update_details
     if @post.update(
-        title: params[:post][:title],
+        # title: params[:post][:title],
         content: params[:post][:content],
         subject_id: @subject.id
         )

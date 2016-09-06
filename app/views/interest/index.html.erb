@@ -1,14 +1,17 @@
-<div class="forum">
+<div class="container" id="spacing">		
+	<%= form_for :interest, url: interest_index_path do |f| %>
+		<p class="col-md-8" align="left"><%= f.submit "Save Schedule", class: "btn btn-primary btn-lg btn-block"%></p>
+		<br>
+		<div class="field form-group col-lg-12">
+			<h1><%= f.label :interests, "Schedule" %></h1>
+			<h3>What classes are you taking</h3>
+			<h4>Use Ctrl+F and type in class to find your classes</h4>
+			<h4>If class is not on list contact us <a href="https://twitter.com/officialscolas">@officialscolas</a> or officialscolas@gmail.com</h4>
+			<br>
 
-<%= form_for :interest, url: interest_index_path do |f| %>
-<div class="field form-group col-lg-7">
-  <%= f.label :interests %>
-
-
-  <% @subjects.each do |subject| %>
-    <%= f.check_box :interests, {:multiple => true}, subject.id, nil %><%= subject.name %>
-  <% end %>
-</div>
-<%= f.submit %>
-<% end %>
+			<% @subjects.each do |subject| %>
+				<p><h4><%= f.check_box :interests, {:multiple => true}, subject.id, nil %><%= subject.name %></h4></p>
+			<% end %>
+		</div>	
+	<% end %>
 </div>
