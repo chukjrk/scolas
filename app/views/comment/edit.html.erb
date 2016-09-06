@@ -1,9 +1,10 @@
-<div class="forum">
+<div class="container" id="spacing">
 
 <h1>edit comment</h1>
+<div class="postsby">
 <%= form_for :comment, url: post_comment_path, method: :patch do |f| %>
 <%= f.text_area :comment %>
-
+</div>
 <%= f.submit %>
 <% end %>
 </div>

@@ -1,7 +1,9 @@
-<div class="forum">
+<div class="container" id="spacing">
+<div class="postsbyy"><
 
 <%= form_for :reply, url: post_comment_reply_path, method: :patch do |f| %>
 <%= f.text_field :content %>
+</div>
 <%= f.submit %>
 <% end %>
 </div>
