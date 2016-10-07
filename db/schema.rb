@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825001550) do
+ActiveRecord::Schema.define(version: 20160917223205) do
 
   create_table "archives", force: true do |t|
     t.integer  "seller_id"
@@ -62,6 +62,17 @@ ActiveRecord::Schema.define(version: 20160825001550) do
     t.string   "sender_name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "notifications", force: true do |t|
+    t.integer  "recipient_id"
+    t.integer  "actor_id"
+    t.datetime "read_at"
+    t.string   "action"
+    t.integer  "notifiable_id"
+    t.string   "notifiable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "posts", force: true do |t|

@@ -20,6 +20,9 @@ class PostController < ApplicationController
   def create
     new_post
     @post.save!
+    (@post.comments.uniq).each do |comment|
+      Notification.create(recipient: user, actor: current_user, action: "posted", notifiable: @post)
+    end
     redirect_to post_index_path
   end
 

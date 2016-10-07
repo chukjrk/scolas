@@ -20,9 +20,16 @@ Rails.application.routes.draw do
       resources :reply, except: [:new]
     end
   end
+
   resources :subject, only: [:index, :create]
   resources :interest
   resources :editinterest
+
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
 
   get "pages/about"
   get "pages/contact"

@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
   has_many :comments, through: :posts
   has_many :posts
 
+  has_many :notifications, foreign_key: :recipient_id
+
 
   def can_buy?(listing_price)
   	if self.points >= listing_price
