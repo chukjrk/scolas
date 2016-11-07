@@ -1,51 +1,52 @@
 <div class="container" id="spacing">
 
-<form action='comment/new'>
+  <form action='comment/new'>
     <input type="submit" class="btn-default btn addCommentButton" value="Add a new Comment!">
-</form>
+  </form>
 
-<div class="post-title">
-<div><p><%= @post.title %></p></div>
-</div>
-<div class="post-content postsby">
+  <div class="post-title">
+    <div><p><%= @post.title %></p></div>
+  </div>
+  <div class="post-content postsby">
 
-<div><p><%= @post.content %></p></div>
-</div>
-<br>
-
-
-<% @post.comments.includes(:replies).each do |comments| %>
-<div class="postsby">
-<div class="post-comments">
-<div><p><%= comments.comment %></p></div>
-<form action="comment/<%= comments.id %>/reply">
-<button class="btn btn-default reply" type="submit">Reply</button>
-</form>
-<div class="commentsbuttons">
-
-<div class="destroy commentdelete"><%= link_to 'Destroy', post_comment_path(@post ,comments), method: :delete %></div>
-<div class="edit commentedit"><%= link_to 'Edit', edit_post_comment_path(@post ,comments) %></div>
-</div>
-
-
-
-</div>
-
-<div class="replies">
-  <% comments.replies.each do |reply| %>
-  <div class="replytext postsby"><%= reply.content %>
-
+    <div><h4><%= @post.content %></h4></div>
   </div>
   <br>
 
-    <% if (user_signed_in?) && (current_user == @post.user) %>
-    	<div class="replydestroy"><%= link_to 'Destroy', post_comment_reply_path(@post, comments, reply), method: :delete %></div>
-    	<div class="replyedit"><%= link_to 'Edit', edit_post_comment_reply_path(@post, comments, reply) %></div>
-    <% end %>
+
+  <% @post.comments.includes(:replies).each do |comments| %>
+  <div class="postsby">
+    <div class="post-comments">
+      <div>
+        <p><strong><%= " #{comments.user.name}" %>: </strong><%= comments.created_at %></p>
+        <p><%= comments.comment %></p>
+      </div>
+      <form action="comment/<%= comments.id %>/reply">
+        <button class="reply" type="submit">Reply</button>
+      </form>
+      
+      <% if (user_signed_in?) && (current_user == comments.user) %>
+      <div class="commentsbuttons">
+        <div class="destroy commentdelete"><%= link_to 'Destroy', post_comment_path(@post ,comments), method: :delete %> &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Edit', edit_post_comment_path(@post ,comments) %></div>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="replies">
+      <% comments.replies.each do |reply| %>
+      <div class="replytext postsby">
+        <%= reply.content %>
+      </div>
+      <br>
+
+      <% if (user_signed_in?) && (current_user == reply.user) %>
+      <div class="replydestroy"><%= link_to 'Destroy', post_comment_reply_path(@post, comments, reply), method: :delete %> <%= link_to 'Edit', edit_post_comment_reply_path(@post, comments, reply) %></div>
+      <<!-- div class="replyedit"></div> -->
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+  <br>
   <% end %>
-</div>
-</div>
-<br>
-<% end %>
 
 </div>

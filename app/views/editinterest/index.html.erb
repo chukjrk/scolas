@@ -10,7 +10,9 @@
 		<h4>If class is not on list contact us <a href="https://twitter.com/officialscolas">@officialscolas</a> or officialscolas@gmail.com</h4>
 		<br>
 		<% @interests.sort_by(&:name).each do |subject| %>
-		<p><h4><%= f.check_box :interests, {:multiple => true}, subject.id, nil %><%= subject.name %></h4></p>
+			<div class="field">
+			<p><h4><%= f.check_box :interests, {:multiple => true}, subject.id, nil %><%= subject.name %></h4></p>
+			</div>
 		<% end %>
 
 		<% end %>

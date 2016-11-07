@@ -2,6 +2,7 @@ class CommentController < ApplicationController
 
   def index
     @post = Post.find(params[:post_id])
+    @comments = current_user.comments
   end
 
   def new
