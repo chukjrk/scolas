@@ -10,7 +10,7 @@ body {
 
 .navbar-default {
 	background-color: #0277bd;
-	opacity: 0.75;
+	opacity: 1;
 	filter: alpha(opacity=50);
 }
 
@@ -271,4 +271,9 @@ body {
 .aboutp {
 	margin-left: 140px;
 	margin-right: 140px;
+}
+
+#aboutus {
+	margin-left: 330px;
+	margin-right: 330px;
 }
