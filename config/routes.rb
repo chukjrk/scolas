@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'pages/textshare'
 
-  devise_for :users, :controllers => {:registrations => "plock"}
+  devise_for :users, controllers: { sessions: 'plock' }
   get 'pages/scolasindex'
 
   resources :listings do
@@ -21,8 +21,18 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :subject, only: [:index, :create]
-  resources :interest
+  resources :subject, only: [:index, :create] do
+    collection do
+      get "search"
+    end
+  end
+
+  resources :interest do
+    collection do
+      get "search"
+    end
+  end
+  
   resources :editinterest
 
   resources :notifications do

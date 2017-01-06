@@ -29,8 +29,12 @@ class TransactionsController < ApplicationController
 					check = listing.save
 					check = current_user.save && check
 					check = transaction.save && check
+
+					@listing.user do |user|
+						Notification.create(recipient: user, actor: current_user, action: "posted", notifiable: @messages)
+					end
 				else
-					error_message = "You do not have enough point"
+					error_message = "You do not have enough points"
 				end
 			end
 		end

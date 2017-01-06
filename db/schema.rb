@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20160917223205) do
   create_table "listings", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.decimal  "price",              precision: 10, scale: 0
+    t.decimal  "price"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(version: 20160917223205) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "displayable",                                 default: true
   end
 
   create_table "messages", force: true do |t|
@@ -132,6 +131,10 @@ ActiveRecord::Schema.define(version: 20160917223205) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end

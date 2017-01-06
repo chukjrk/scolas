@@ -1,0 +1,30 @@
+<div class="container" id="spacing">    
+
+<div class="row inline">
+        <%= form_tag search_interest_index_path, method: :get do %>
+        <p>
+          <div class="col-lg-offset-2 col-lg-7" id="one">
+            <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search" %>
+          </div>
+          <div id="two">
+            <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+          </div>
+        </p>
+        <% end %>
+      </div> 
+      
+  <%= form_for :interest, url: interest_index_path do |f| %>
+    <p class="col-md-8" align="left"><%= f.submit "Save Schedule", class: "btn btn-primary btn-lg btn-block"%></p>
+    <br>
+    <div class="field form-group col-lg-12">
+      <h1><%= f.label :interests, "Schedule" %></h1>
+      <br>
+
+      <% @subjects.each do |subject| %>
+        <div class="field">
+        <p><h4><%= f.check_box :interests, {:multiple => true}, subject.id, nil %><%= subject.name %></h4></p>
+        </div>
+      <% end %>
+    </div>  
+  <% end %>
+</div>

@@ -71,3 +71,7 @@ group :development do
 end
 
 gem "font-awesome-rails"
+
+gem 'tire'
+
+gem "nested_form"
