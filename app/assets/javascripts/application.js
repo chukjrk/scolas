@@ -38,9 +38,9 @@ function openCity(evt, cityName) {
 };
 
 $(function () {
-    $('#products_search input').keyup(function () {
-        $.get($('#products_search').attr('action'), &crarr;
-            $('#products_search').serialize(), null, 'script');
-        return false;
-    });
+    // $('#products_search input').keyup(function () {
+    //     $.get($('#products_search').attr('action'), &crarr;
+    //         $('#products_search').serialize(), null, 'script');
+    //     return false;
+    // });
 })
