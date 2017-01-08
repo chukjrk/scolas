@@ -36,3 +36,11 @@ function openCity(evt, cityName) {
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
 };
+
+$(function () {
+    $('#products_search input').keyup(function () {
+        $.get($('#products_search').attr('action'), &crarr;
+            $('#products_search').serialize(), null, 'script');
+        return false;
+    });
+})
