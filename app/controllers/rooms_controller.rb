@@ -13,6 +13,10 @@ class RoomsController < ApplicationController
   end
 
   def create
+    # @room.users.each do |user|
+    #   Notification.create(reciepients)
+    # end
+
     @chat_room = Room.find(params[:id])
   	if @chat_room != nil && correct_user(@chat_room)
   		@chat_room.messages.new(message: params[:message], sender_name: current_user.email)

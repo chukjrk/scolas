@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160917223205) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "displayable",        default: true
   end
 
   create_table "messages", force: true do |t|
