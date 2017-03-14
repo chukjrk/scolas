@@ -20,7 +20,8 @@
 			<div class="navbar-header">
 				<script async src="//"></script>
 				<script>
-					(adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-8459641747397300",enable_page_level_ads: true});
+					(adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-8459641747397300",enable_page_level_ads: true
+					});
 				</script>
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#domo" aria-expanded="false">
 					<span class="sr-only">Toggle navigation</span>
@@ -51,7 +52,7 @@
 					<% if current_user %>
 						<li class="menu-list-item">Points ( <%= current_user.points %> ) </li>
             			<li class="nav-item btn-group" data-behavior="notifications">
-              				<a class="dropdown-toggle nav-link" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              				<a class="dropdown-toggle nav-link" type="button" data-behavior="notifications-link" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         						<%= fa_icon "bell" %><span data-behavior="unread-count"></span>
               				</a>
               				<div class="dropdown-menu" aria-labelledby="dropdownMenu1" data-behavior="notification-items">
