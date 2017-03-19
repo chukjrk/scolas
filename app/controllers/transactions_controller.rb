@@ -30,7 +30,7 @@ class TransactionsController < ApplicationController
 					check = current_user.save && check
 					check = transaction.save && check
 
-					Notification.create(recipient: listing.user, actor: current_user, action: "posted", notifiable: @messages)
+					Notification.create(recipient: listing.user, actor: current_user, action: "posted", notifiable: transaction)
 				else
 					error_message = "You do not have enough points"
 				end

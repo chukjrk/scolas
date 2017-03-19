@@ -179,15 +179,16 @@ body {
 			}
 		}
 		.message{
-			border-bottom: 2px solid #f1f1f1;
 			.name{
-				font-size: 10px;
+				font-size: 12px;
 				color: #337ab7;
 			}
 			.time{
+			color: #bababa;
 			}
 			.content{
-				color: #666;
+				color: #090000;
+				font-size: 15px;
 			}
 		}
 		.message:last-child{
@@ -208,6 +209,9 @@ body {
 
 	#dialog{
 		padding-top: 5px;
+		p{
+		font-size: 1.3em;
+		}
 	}
 	#flan{
 		padding-bottom: 7px;

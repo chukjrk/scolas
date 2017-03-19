@@ -18,7 +18,7 @@ gem 'jquery-ui-rails', '~> 5.0.5'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
-gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap-sass'
 gem "paperclip", "~> 4.3"
 gem "paperclip-dropbox", ">= 1.1.7"
 gem "devise"
