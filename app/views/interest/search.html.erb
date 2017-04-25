@@ -1,7 +1,7 @@
 <div class="container" id="spacing">    
 
 <div class="row inline">
-        <%= form_tag search_interest_index_path, method: :get do %>
+        <%= form_tag interest_index_path, method: :get do %>
         <p>
           <div class="col-lg-offset-2 col-lg-7" id="one">
             <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search" %>
@@ -22,9 +22,10 @@
 
       <% @subjects.each do |subject| %>
         <div class="field">
-        <p><h4><%= f.check_box :interests, {:multiple => true}, subject.id, nil %><%= subject.name %></h4></p>
+        <p><h4><%= f.check_box :interests, {:multiple => true}, subject.id, (true/false) %><%= subject.name %></h4></p>
         </div>
       <% end %>
     </div>  
   <% end %>
+
 </div>

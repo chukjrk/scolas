@@ -25,7 +25,7 @@
 		<br>
 		<% @interests.sort_by(&:name).each do |subject| %>
 			<div class="field">
-			<p><h4><%= f.check_box :interests, {:multiple => true}, "like[subject_ids][]", subject.id, (true/false) %><%= subject.name %></h4></p>
+			<p><h4><%= f.check_box :interests, {:multiple => true}, "[]", subject.id, (true/false) %><%= subject.name %></h4></p>
 			</div>
 		<% end %>
 		</div>

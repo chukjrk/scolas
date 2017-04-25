@@ -1,0 +1,21 @@
+<div class="container" id="spacing">
+ 
+  <%= link_to "<div class='avatar col-md-4'></div>".html_safe, edit_user_registration_path %>
+    <h1><%= current_user.name %></h1>
+
+	<!-- <div class="container"> -->
+		
+		<ul class="social">
+
+			<li class="textshare"><%= link_to "TextShare", pages_textshare_path %></li>
+			<li class="postbooks" ><%= link_to 'Post Book', new_listing_path %></li>
+			<li class="managebooks"><%= link_to "Manage Books", seller_path %></li>
+			<li class="purhold"><%= link_to "Purchases on hold", purchasing_path %></li>
+			<li class="archive"><%= link_to "Purchases archive", purchased_path %></li>
+			<li class="salehold"><%= link_to "Sales on hold", sell_path %></li>
+			<li class="salesarchive"><%= link_to "Sales archive", sales_path %></li>
+
+		</ul>
+
+	<!-- </div> -->
+</div>

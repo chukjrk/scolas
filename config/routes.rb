@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'pages/textshare'
 
   devise_for :users, controllers: { sessions: 'plock' }
@@ -34,6 +35,7 @@ Rails.application.routes.draw do
   end
   
   resources :editinterest
+  resources :users
 
   resources :notifications do
     collection do

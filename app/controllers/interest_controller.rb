@@ -2,7 +2,7 @@ class InterestController < ApplicationController
 
   def index
     if params[:search].present?
-      @subjects = Subject.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
+      @subjects = Subject.search(params[:search]).paginate(:per_page => 10, :page => params[:page])
       # @locations = @locations.paginate(:page => 1, :per_page => 2)
     else
       @subjects = Subject.all.sort_by(&:name)

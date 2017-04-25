@@ -16,8 +16,7 @@ class RoomsController < ApplicationController
 
     @chat_room = Room.find(params[:id])
   	if @chat_room != nil && correct_user(@chat_room)
-  		@chat_room.messages.new(message: params[:message], sender_name: current_user.email)
-
+  		@chat_room.messages.new(message: params[:message], sender_name: current_user.name)
   	else
   		redirect_to root_url
   	end

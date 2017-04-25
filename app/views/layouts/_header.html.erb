@@ -50,9 +50,10 @@
               				<a class="dropdown-toggle nav-link" type="button" data-behavior="notifications-link" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         						<%= fa_icon "bell" %><span data-behavior="unread-count"></span>
               				</a>
-              				<div class="dropdown-menu well" aria-labelledby="dropdownMenu1" data-behavior="notification-items">
+              				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              					<li data-behavior="notification-items"></li>
               					<!-- <a class="dropdown-item" href="#">Action</a> -->
-              				</div>
+              				</ul>
             			</li>
 						<li class="menu-item2">
 							<div class="dropdown">
@@ -65,11 +66,11 @@
 							  	<li><%= link_to "Edit Profile", edit_user_registration_path  %></li>
 							  	<li><%= link_to 'Post Book', new_listing_path %></li>
 							  	<li><%= link_to "Manage Books", seller_path %></li>
-								  <li><%= link_to "Purchases on hold", purchasing_path %></li>
-								  <li><%= link_to "Purchases archive", purchased_path %></li>
-								  <li><%= link_to "Sales on hold", sell_path %></li>
-								  <li><%= link_to "Sales archive", sales_path %></li>
-								  <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete  %></li>
+								<li><%= link_to "Purchases on hold", purchasing_path %></li>
+								<li><%= link_to "Purchases archive", purchased_path %></li>
+								<li><%= link_to "Sales on hold", sell_path %></li>
+								<li><%= link_to "Sales archive", sales_path %></li>
+								<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete  %></li>
 							  </ul>
 							</div>
 						</li>

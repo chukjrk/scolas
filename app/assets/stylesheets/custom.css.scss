@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
+@import url(http://weloveiconfonts.com/api/?family=entypo);
 
 body {
 	background-color: #F5F5F1;
@@ -38,6 +40,7 @@ body {
 	li.menu-list-item{
 		padding-top: 15px;
 		font-weight: bold;
+		color: #0d3809;
 	}
 	li.menu-item2{
 		padding-top: 7px;
@@ -287,4 +290,199 @@ body {
 	margin-left: 25%;
 	margin-right: 25%;
 	width: 50%;
+}
+
+
+
+
+
+
+
+
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+body {
+  height:100%;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: 0.05em;	
+}
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.avatar {
+  border-radius: 100%;
+  margin: 4rem auto 2rem auto;
+  width: 10rem;
+  height: 10rem;
+  box-shadow: 0 0 0 8px rgba(0,0,0,0.2);
+  transition: all 0.5s ease-in-out;
+}
+
+.avatar:hover {
+  box-shadow: 0 0 0 12px rgba(0,0,0,0.6);
+}
+
+h1 {
+  text-align:center;
+  font-size:24px;
+  font-weight:300;
+  color:#000000;
+  text-shadow: 1px 1px 2px #444444;
+  margin: 0;
+}
+
+h3 {
+  text-align:center;
+  font-size:16px;
+  font-weight:300;
+  color:#000000;
+  text-shadow: 1px 1px 2px #444444;
+  margin: 0.5em 0 1em 0;
+}
+
+p {
+  text-align:center;
+  font-size:12px;
+  font-weight:300;
+  color:#000000;
+  text-shadow: 1px 1px 2px #444444;
+}
+
+.social {
+	position: relative;
+	height: 3em;
+	width: 13.5em;
+}
+
+.social li {
+  border-radius:10px;
+	display: block;
+	height: 4em;
+	line-height: 4em;
+	margin: -2.2em;
+	position: absolute;
+	transition: all 0.5s ease-in-out;
+	transform: rotate(45deg);
+	text-align: center;
+	width: 4em;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.4);
+}
+
+.social a {
+	color: #000000;
+  text-decoration:none;
+	display: block;
+	height: 4em;
+	line-height: 4em;
+	text-align: center;
+	transform: rotate(-45deg);
+	width: 4em;
+}
+
+@media only screen 
+and (max-width : 320px) {
+
+
+.social {
+	position: relative;
+	height: 3em;
+	width: 10em;
+}
+
+.social li {
+	height: 3em;
+	line-height: 3em;
+	width: 3em;
+}
+
+
+}
+
+.postbooks {
+  background:rgba(255,255,255,0.1);
+	left: 0;
+	top: 0%;
+}
+
+.postbooks:hover{
+  background:#155b9d;
+  box-shadow: 0 0 0 2px #155b9d;
+}
+
+.textshare {
+  background:rgba(255,255,255,0.1);
+	bottom: 0;
+	left: 25%;
+}
+
+.textshare:hover{
+  background:#4099FF;
+  box-shadow: 0 0 0 2px #4099FF;
+}
+
+
+.managebooks {
+  background:rgba(255,255,255,0.1);
+	left: 50%;
+	top: 0;
+}
+
+.managebooks:hover{
+  background:#f34141;
+  box-shadow: 0 0 0 2px #f34141;
+}
+
+.purhold {
+  background:rgba(255,255,255,0.1);
+	left: 75%;
+	bottom: 0;
+}
+
+.purhold:hover{
+  background:#333333;
+  box-shadow: 0 0 0 2px #333333;
+}
+
+
+.archive {
+  background:rgba(255,255,255,0.1);
+  left: 100%;
+	top: 0;
+}
+
+.archive:hover{
+  background:#1abc9c;
+  box-shadow: 0 0 0 2px #1abc9c;
+}
+
+.salehold {
+  background:rgba(255,255,255,0.1);
+  left: 125%;
+	top: 0;
+}
+
+.salehold:hover{
+  background:#1abc9c;
+  box-shadow: 0 0 0 2px #1abc9c;
+}
+
+.salesarchive {
+  background:rgba(255,255,255,0.1);
+  left: 150%;
+	top: 0;
+}
+
+.salearchive:hover{
+  background:#1abc9c;
+  box-shadow: 0 0 0 2px #1abc9c;
 }
