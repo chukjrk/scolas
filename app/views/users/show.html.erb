@@ -1,11 +1,11 @@
 <div class="container" id="spacing">
- 
-  <%= link_to "<div class='avatar col-md-4'></div>".html_safe, edit_user_registration_path %>
+<div class="dashboard">
+
+	<%= link_to "<div class='col-md-4' id='avatar'></div>".html_safe, edit_user_registration_path %>
     <h1><%= current_user.name %></h1>
 
-	<!-- <div class="container"> -->
-		
-		<ul class="social">
+		<div id="social">
+		<ul>
 
 			<li class="textshare"><%= link_to "TextShare", pages_textshare_path %></li>
 			<li class="postbooks" ><%= link_to 'Post Book', new_listing_path %></li>
@@ -16,6 +16,6 @@
 			<li class="salesarchive"><%= link_to "Sales archive", sales_path %></li>
 
 		</ul>
-
-	<!-- </div> -->
+		</div>
+</div>
 </div>

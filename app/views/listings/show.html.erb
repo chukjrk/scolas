@@ -15,19 +15,32 @@
 		
 		<% if (user_signed_in?) && (current_user != @listing.user) %>
 			<!-- <button id="buy-product" class="btn btn-primary">Buy</button> -->
+
+			<%= link_to "Buy", "#buyModal", :class => "btn btn-succes", "data-toggle" => "modal" %>
 			
-			<div class="col-md-6" id="dialog">
-				<p><em>Enter message for seller and click confirm</em></p>
-	  			<%= form_for @transaction do |f| %>
-					<%= hidden_field_tag "listing_id", @listing.id %>
-					<div id="flan">
-					<%= text_area_tag "message", "", class: "form-control", placeholder: "Message..." %>
+			<div class="modal fade" id="buyModal" title="My modal">
+				<div class="container" id="spacing">
+					<div class="modal-header">
+						<button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+						<h3 id="myModalLabel"><p><em>Enter message for seller and click confirm</em></p></h3>
 					</div>
-					<!-- <button class="btn btn-primary cancel">Cancel</button> -->
-				<%= f.submit "Buy", class: "btn btn-success confirm" %>
-				<%= link_to 'Back', listings_path, class: "btn btn-link" %>
-				<% end %>
+					<div class="modal-body">
+						<div class="col-md-6" id="dialog">
+	  						<%= form_for @transaction do |f| %>
+								<%= hidden_field_tag "listing_id", @listing.id %>
+								<div id="flan">
+									<%= text_area_tag "message", "", class: "form-control", placeholder: "Message..." %>
+								</div>
+					
+								<%= f.submit "Buy", class: "btn btn-success confirm" %>
+								<button aria-hidden="true" class="btn" data-dismiss="modal">Close</button>
+							<% end %>
+						</div>
+					</div>
+				</div>
 			</div>
+
+			
 		<% end %>
 		
 

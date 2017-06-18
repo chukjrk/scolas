@@ -304,13 +304,14 @@ body {
   font-family: 'entypo', sans-serif;
 }
 
+
 body {
-  height:100%;
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-  font-size: 1em;
-  font-weight: 300;
-  line-height: 1.5;
-  letter-spacing: 0.05em;	
+ 	height:100%;
+ 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+ 	font-size: 1em;
+ 	font-weight: 300;
+ 	line-height: 1.5;
+ 	letter-spacing: 0.05em;	
 }
 
 * {
@@ -319,29 +320,32 @@ body {
   box-sizing: border-box;
 }
 
-.avatar {
+#avatar {
   border-radius: 100%;
-  margin: 4rem auto 2rem auto;
-  width: 10rem;
-  height: 10rem;
+  margin: 4rem auto 4rem 4em;
+  width: 20rem;
+  height: 20rem;
   box-shadow: 0 0 0 8px rgba(0,0,0,0.2);
   transition: all 0.5s ease-in-out;
 }
 
-.avatar:hover {
+#avatar:hover {
   box-shadow: 0 0 0 12px rgba(0,0,0,0.6);
 }
 
-h1 {
+.dashboard h1 {
+  position: absolute;
+  top: 300px;
+  margin-right: auto;
+  margin-left: 10rem;
   text-align:center;
   font-size:24px;
   font-weight:300;
   color:#000000;
   text-shadow: 1px 1px 2px #444444;
-  margin: 0;
 }
 
-h3 {
+.dashboard h3 {
   text-align:center;
   font-size:16px;
   font-weight:300;
@@ -350,37 +354,32 @@ h3 {
   margin: 0.5em 0 1em 0;
 }
 
-p {
-  text-align:center;
-  font-size:12px;
-  font-weight:300;
-  color:#000000;
-  text-shadow: 1px 1px 2px #444444;
-}
-
-.social {
-	position: relative;
+#social {
+	position: absolute;
 	height: 3em;
 	width: 13.5em;
+	bottom: 270px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-.social li {
-  border-radius:10px;
+#social li {
+  border-radius:20px;
 	display: block;
-	height: 4em;
+	height: 6em;
 	line-height: 4em;
 	margin: -2.2em;
 	position: absolute;
 	transition: all 0.5s ease-in-out;
 	transform: rotate(45deg);
 	text-align: center;
-	width: 4em;
+	width: 6em;
   box-shadow: 0 0 0 2px rgba(0,0,0,0.4);
 }
 
-.social a {
+#social a {
 	color: #000000;
-  text-decoration:none;
+	text-decoration:none;
 	display: block;
 	height: 4em;
 	line-height: 4em;
@@ -392,14 +391,13 @@ p {
 @media only screen 
 and (max-width : 320px) {
 
-
-.social {
-	position: relative;
+#social {
+	position: absolute;
 	height: 3em;
 	width: 10em;
 }
 
-.social li {
+#social li {
 	height: 3em;
 	line-height: 3em;
 	width: 3em;
@@ -411,7 +409,7 @@ and (max-width : 320px) {
 .postbooks {
   background:rgba(255,255,255,0.1);
 	left: 0;
-	top: 0%;
+	top: -115%;
 }
 
 .postbooks:hover{
@@ -422,7 +420,7 @@ and (max-width : 320px) {
 .textshare {
   background:rgba(255,255,255,0.1);
 	bottom: 0;
-	left: 25%;
+	left: 35%;
 }
 
 .textshare:hover{
@@ -430,11 +428,10 @@ and (max-width : 320px) {
   box-shadow: 0 0 0 2px #4099FF;
 }
 
-
 .managebooks {
   background:rgba(255,255,255,0.1);
-	left: 50%;
-	top: 0;
+	left: 70%;
+	top: -115%;
 }
 
 .managebooks:hover{
@@ -444,7 +441,7 @@ and (max-width : 320px) {
 
 .purhold {
   background:rgba(255,255,255,0.1);
-	left: 75%;
+	left: 105%;
 	bottom: 0;
 }
 
@@ -453,11 +450,10 @@ and (max-width : 320px) {
   box-shadow: 0 0 0 2px #333333;
 }
 
-
 .archive {
   background:rgba(255,255,255,0.1);
-  left: 100%;
-	top: 0;
+  left: 140%;
+	top: -115%;
 }
 
 .archive:hover{
@@ -467,8 +463,8 @@ and (max-width : 320px) {
 
 .salehold {
   background:rgba(255,255,255,0.1);
-  left: 125%;
-	top: 0;
+  left: 175%;
+  bottom: 0;
 }
 
 .salehold:hover{
@@ -478,11 +474,26 @@ and (max-width : 320px) {
 
 .salesarchive {
   background:rgba(255,255,255,0.1);
-  left: 150%;
-	top: 0;
+  left: 210%;
+	top: -115%;
 }
 
 .salearchive:hover{
   background:#1abc9c;
   box-shadow: 0 0 0 2px #1abc9c;
 }
+
+#copyright {
+	position: ablsolute;
+  display:block;
+  bottom:0;
+  right:0;
+  width:100%;
+  font-weight: bold;
+}
+
+#buyModal {
+	background: white;
+
+}
+

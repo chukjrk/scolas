@@ -75,3 +75,5 @@ gem "font-awesome-rails"
 gem 'tire'
 
 gem "nested_form"
+
+gem 'magnific-popup-rails', '~> 1.1.0'
