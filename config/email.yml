@@ -2,13 +2,13 @@ development:
   :address: smtp.postmark.com
   :port: 587
   :authentication: plain
-  :user_name: 2642ab79-52e1-438b-a5b7-46c340e70ed1
-  :password: 2642ab79-52e1-438b-a5b7-46c340e70ed1
+  :user_name: d14821d9-a5ec-4176-b658-5232ea0a7467
+  :password: d14821d9-a5ec-4176-b658-5232ea0a7467
   :enable_starttls_auto: true
 production:
   :address: smtp.postmark.com
   :port: 587
   :authentication: plain
-  :user_name: 2642ab79-52e1-438b-a5b7-46c340e70ed1
-  :password: 2642ab79-52e1-438b-a5b7-46c340e70ed1
+  :user_name: d14821d9-a5ec-4176-b658-5232ea0a7467
+  :password: d14821d9-a5ec-4176-b658-5232ea0a7467
   :enable_starttls_auto: true
