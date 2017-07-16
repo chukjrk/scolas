@@ -20,3 +20,7 @@
 
 #Ignore files upload on localhost
 /public/systemsetup_mail.rb
+
+#ignore environment mail files
+/.env
+/config

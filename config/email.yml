@@ -9,6 +9,6 @@ production:
   :address: smtp.postmark.com
   :port: 587
   :authentication: plain
-  :user_name: d14821d9-a5ec-4176-b658-5232ea0a7467
-  :password: d14821d9-a5ec-4176-b658-5232ea0a7467
+  :user_name: 818c781e-4d25-4260-95de-7fab337b8542
+  :password: 818c781e-4d25-4260-95de-7fab337b8542
   :enable_starttls_auto: true
