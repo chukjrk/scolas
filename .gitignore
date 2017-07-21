@@ -22,5 +22,5 @@
 /public/systemsetup_mail.rb	
 
 #ignore 
-/.env
+.env
 /config
