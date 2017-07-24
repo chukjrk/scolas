@@ -19,8 +19,10 @@
 /config/application.yml
 
 #Ignore files upload on localhost
-/public/systemsetup_mail.rb	
+/public/system
+setup_mail.rb	
 
 #ignore 
 .env
 /config
+

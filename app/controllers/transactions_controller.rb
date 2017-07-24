@@ -31,6 +31,7 @@ class TransactionsController < ApplicationController
 					check = transaction.save && check
 
 					Notification.create(recipient: listing.user, actor: current_user, action: "posted", notifiable: transaction)
+					SendSMSBookBought.new.call(transaction)
 				else
 					error_message = "You do not have enough points"
 				end
