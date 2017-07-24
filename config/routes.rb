@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :transactions   , only: [:create]
+  resources :transactions, only: [:create] do
+    post :confirm, on: :collection
+  end
   resources :archives       , only: [:create]
   resources :rooms          , only: [:show, :create]
   resources :messages       , only: [:create]

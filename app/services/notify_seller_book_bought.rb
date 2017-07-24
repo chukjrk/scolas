@@ -1,7 +1,7 @@
-class SendSMSBookBought
-  def call()
-    account_sid = 'AC82355794d7fdc60672804ccdd6ae6ca3' # TODO: Remove to env variable
-    auth_token = 'bb170d3fd1fbd9d82d039a8170de220b' # TODO: Remove to env variable
+class NotifySellerBookBought
+  def self.call()
+    account_sid = 'AC52f02b0b4b36028b00738d8f526ecca8' # TODO: Remove to env variable
+    auth_token = 'ea9a17a04da093198710c20c9a34c545' # TODO: Remove to env variable
     twilio_phone_number = '+14156499179'
 
     client = Twilio::REST::Client.new account_sid, auth_token
