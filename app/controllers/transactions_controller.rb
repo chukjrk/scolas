@@ -31,9 +31,9 @@ class TransactionsController < ApplicationController
 					check = current_user.save && check
 					check = transaction.save && check
 
-					# TODO: Should it be removed?
+					# TODO: Should it be removed? Ask Jr Kem
 					Notification.create(recipient: listing.user, actor: current_user, action: "posted", notifiable: transaction)
-					NotifySellerBookBought.call()
+					NotifySellerBookBought.call(ENV['MY_PHONE_NUMER']) # TODO: Use seller numer after merging changes from master branch
 					AskBuyerToConfirmTransaction.delay(run_at: 5.minute.from_now, queue: 'sms').call(transaction)
 				else
 					error_message = "You do not have enough points"
