@@ -3,7 +3,7 @@ class ChangePhoneNumber < ActiveRecord::Migration
     change_column :users, :phone_number, :string
   end
 
-  def self.up
+  def self.down
     change_column :users, :phone_number, :integer
   end
 end
