@@ -33,8 +33,8 @@ class TransactionsController < ApplicationController
 
 					# TODO: Should it be removed? Ask Jr Kem
 					Notification.create(recipient: listing.user, actor: current_user, action: "posted", notifiable: transaction)
-					NotifySellerBookBought.call(ENV['MY_PHONE_NUMER']) # TODO: Use seller numer after merging changes from master branch
-					AskBuyerToConfirmTransaction.delay(run_at: 5.minute.from_now, queue: 'sms').call(transaction)
+					NotifySellerBookBought.call(transaction.seller.phone_number)
+					AskBuyerToConfirmTransaction.delay(run_at: 1.day.from_now, queue: 'sms').call(transaction)
 				else
 					error_message = "You do not have enough points"
 				end
@@ -59,10 +59,10 @@ class TransactionsController < ApplicationController
 			if transaction = Transaction.find_by(id: transaction_id)
 				AddPointsToSeller.call(transaction)
 			else
-				ConfirmationFailed.call("Transaction with id = #{transaction_id} doesn't exists")
+				ConfirmationFailed.call(params['From'], "Transaction with id = #{transaction_id} doesn't exists.")
 			end
 		else
-			ConfirmationFailed.call("You didn't answer with yes")
+			ConfirmationFailed.call(params['From'], "You didn't answer with yes")
 		end
 
 		head :ok
