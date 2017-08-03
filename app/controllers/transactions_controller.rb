@@ -1,6 +1,7 @@
+require 'securerandom'
 class TransactionsController < ApplicationController
-	before_action :authenticate_user!
-	require 'securerandom'
+	before_action :authenticate_user!, except: :confirm
+	skip_before_action :verify_authenticity_token, only: :confirm
 
 	def create
 		listing = Listing.find(params[:listing_id])
@@ -30,7 +31,10 @@ class TransactionsController < ApplicationController
 					check = current_user.save && check
 					check = transaction.save && check
 
+					# TODO: Should it be removed? Ask Jr Kem
 					Notification.create(recipient: listing.user, actor: current_user, action: "posted", notifiable: transaction)
+					NotifySellerBookBought.call(transaction.seller.phone_number)
+					AskBuyerToConfirmTransaction.delay(run_at: 1.day.from_now, queue: 'sms').call(transaction)
 				else
 					error_message = "You do not have enough points"
 				end
@@ -44,6 +48,24 @@ class TransactionsController < ApplicationController
 			flash[:danger] = error_message
 			redirect_to listings_url(listing)
 		end
+	end
+
+	def confirm
+		body_params = params['Body'].split(' ')
+		transaction_id = body_params[0].try(:strip)
+		answer = body_params[1].try(:strip)
+
+		if AnsweredWithYes.call(answer)
+			if transaction = Transaction.find_by(id: transaction_id)
+				AddPointsToSeller.call(transaction)
+			else
+				ConfirmationFailed.call(params['From'], "Transaction with id = #{transaction_id} doesn't exists.")
+			end
+		else
+			ConfirmationFailed.call(params['From'], "You didn't answer with yes")
+		end
+
+		head :ok
 	end
 
 
