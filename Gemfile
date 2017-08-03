@@ -78,8 +78,6 @@ gem "nested_form"
 
 gem 'magnific-popup-rails', '~> 1.1.0'
 
-gem 'angularjs-rails'
-
 gem 'twilio-ruby', '~> 5.0.0'
 
 gem 'delayed_job_active_record'
