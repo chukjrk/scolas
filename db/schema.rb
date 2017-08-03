@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160917223205) do
+ActiveRecord::Schema.define(version: 20170728024016) do
 
   create_table "archives", force: true do |t|
     t.integer  "seller_id"
@@ -138,6 +138,9 @@ ActiveRecord::Schema.define(version: 20160917223205) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "phone_number"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
